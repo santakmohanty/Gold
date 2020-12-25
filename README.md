@@ -63,7 +63,7 @@ The Project uses
     - `urls.py` refers to `apps/main/`'s URLs & specifies root directory to store MEDIA files.
 
 ## Already in Project
-#### In the project the word <project> refers to the project that you are working on, change this reference before starting anythin in this boiler template. start by changing the name of the directory src/project to src/project_name and run the server, change at other places where you see any error
+#### In the project the word <project> refers to the project that you are working on, change this reference before starting anything in this boiler template. start by changing the name of the directory src/project to src/<your_project_name> and run the server, change at other places where you see any error
 * ### helper.py
 	* strip_tags - to strip input tags for html tags
 	* save_file - to save any uploaded file
