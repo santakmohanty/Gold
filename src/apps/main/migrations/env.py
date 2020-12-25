@@ -54,7 +54,7 @@ def combine_metadata(*args):
 # IMPORTANT
 # put comma seperated model.BaseModel.metadata in combine_metadata() for alembic to make migrations
 # demo value is put, replace this with your model
-target_metadata = combine_metadata(demo_user_model.BaseModel.meta)
+target_metadata = combine_metadata(demo_user_model.BaseModel.metadata)
 
 
 # other values from the config, defined by the needs of env.py,

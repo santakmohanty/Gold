@@ -64,6 +64,7 @@ The Project uses
 
 ## Already in Project
 #### In the project the word <project> refers to the project that you are working on, change this reference before starting anything in this boiler template. start by changing the name of the directory src/project to src/<your_project_name> and run the server, change at other places where you see any error
+### If you change the folder name, kindly also change it in manage.py, url.py, settings.py, wsgi.py before running the server
 * ### helper.py
 	* strip_tags - to strip input tags for html tags
 	* save_file - to save any uploaded file
@@ -107,6 +108,7 @@ The Project uses
 * Now run `source venv/bin/activate`.  The environment is now active.
 * Install dependencies using `pip install -r requirements.txt`.
 * Create a folder `/src/logs`
+* Create a folder `/src/apps/migartions/versions`
 ### Create Database
 * The project uses postgres database
 

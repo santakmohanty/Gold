@@ -15,7 +15,6 @@ def environment(**options):
         'static': staticfiles_storage.url,
         'url': reverse,
         'base_url': BASE_URL,
-        'QueueStatus': QueueStatus,
         'current_timestamp': math.ceil(datetime.now().timestamp())
     }, zip = zip)
     env.filters['timestamptodate'] = timestamp_to_date
