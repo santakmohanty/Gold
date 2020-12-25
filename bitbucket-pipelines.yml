@@ -1,0 +1,19 @@
+image: node:10.15.3
+pipelines:
+  branches:
+    master:
+      - step:
+          caches:
+            - pip
+          script:
+            - cat ./src/script/deploy-prod.sh | ssh $SSH_USER@$SSH_HOST
+            - COMMIT_MESSAGE=`git log --format=%B -n 1 $BITBUCKET_COMMIT`
+            - echo "Deployment finished"
+    development:
+      - step:
+          caches:
+            - pip
+          script:
+            - cat ./src/script/deploy.sh | ssh $SSH_USER@$SSH_HOST
+            - COMMIT_MESSAGE=`git log --format=%B -n 1 $BITBUCKET_COMMIT`
+            - echo "Deployment finished"

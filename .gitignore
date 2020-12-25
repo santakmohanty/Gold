@@ -48,3 +48,12 @@ Thumbs.db
 *.mov
 *.wmv
 
+
+node_modules/
+/venv
+__pycache__
+config.yml
+.vscode
+.idea
+/src/media/*
+/src/logs/*
