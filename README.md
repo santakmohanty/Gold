@@ -106,6 +106,7 @@ The Project uses
 * Activate Virtual environment and run all the commands related to the project in the virtual environment. run `cd /opt/edugem/apps/your project name`
 * Now run `source venv/bin/activate`.  The environment is now active.
 * Install dependencies using `pip install -r requirements.txt`.
+* Create a folder `/src/logs`
 ### Create Database
 * The project uses postgres database
 
