@@ -6,6 +6,62 @@ The Project uses
 4. jinja2 (template rendering)
 5. RQ Worker (for async tasking)
 
+## Technical Details
+
+### Tech Stack
+
+- Django (Web Framework)
+- Postgresql (Database)
+- SQLAlchemy (ORM for the project)
+    - All the SQL queries are written with SQLAlchemy in mind
+    - Has great performance compared to Django's default ORM
+- Alembic
+    - DB migration tool, to use with SQLAlchemy
+    - To generate migrations from models & reflect those migrations in the database
+- Jinja
+    - Web Template Engine
+    - Better performance in terms of rendering than Django's default Template Engine
+- RQ Worker
+    - To schedule tasks
+
+
+### Workflow
+
+#### Directory Structure
+
+- `src/` 
+    - Root of the application
+
+- `src/apps/main/`
+    - Contains all the logic of components in separate directories related to
+        - Migrations
+        - Static files (CSS, JS, & Plugins (Bootstrap4, SB-Admin2))   
+        - Models' logic
+        - Views
+        - Tasks (Sending emails)
+        - HTML Templates (layouts & pages for screens)
+        - Alembic & Jinja configurations
+    - `urls.py`
+        - All the urls for the project will come here
+    - `middleware/admin_auth_middleware.py`
+        - A middeware, that intercepts incoming requests & responses
+    -  `migratoins/versions/`
+        - Contains all the Alembic migrations
+        - File Naming Convention: `revisionID_description.py`
+    - `models/`
+        - `base.py` contains SQLAlchemy driver URL & session
+        - Rest of the files have inherited `base.py`'s `BaseModel` class and are having model structure & definitions to access data using SQLAlchemy
+    - `tasks/send_email.py` contains a Celery task that would send an email
+    -  `views/base_view.py` has decorators' definitions & the `BaseView` class handles requests from routes        
+
+- `src/config/config.yml`
+    - Contains (Django) App's SECRET Key, Email & Database configurations  
+    - `settings.py` and other files will reference to it and fetch credentials to be used in the app.
+
+- `src/project/`
+    -  `settings.py` has all the global settings of the app
+    - `urls.py` refers to `apps/main/`'s URLs & specifies root directory to store MEDIA files.
+
 ## Already in Project
 #### In the project the word <project> refers to the project that you are working on, change this reference before starting anythin in this boiler template. start by changing the name of the directory src/project to src/project_name and run the server, change at other places where you see any error
 * ### helper.py
@@ -40,16 +96,16 @@ The Project uses
 
 ### Set up instructions
 * Clone the project at `/opt/edugem/apps/`
-* now after cloning go inside the folder using `cd mirror-ui`
+* rename the fodler cloned with your project name
+* now after cloning go inside the folder using `cd your project name`
 * Now create a virtual environment using python 3.6. If you do not have python 3.6 installed on you system 
   * Follow `https://www.tecmint.com/install-python-in-ubuntu/`
   * Make python3.6 as your default python by creating aliase in bashrc file, open bashrc file using `sudo nano ~/.bashrc` now add `python=python3.6` in the file at the top. Now run `source ~/.bashrc` to reflect the changes
 
 * Create virtual environment named `venv` using `virtualenv venv -p python3.6` 
-* Activate Virtual environment and run all the commands related to the project in the virtual environment. run `cd /opt/edugem/apps/mirror-ui`
+* Activate Virtual environment and run all the commands related to the project in the virtual environment. run `cd /opt/edugem/apps/your project name`
 * Now run `source venv/bin/activate`.  The environment is now active.
 * Install dependencies using `pip install -r requirements.txt`.
-* Install `sudo apt-get install -y gifsicle`
 ### Create Database
 * The project uses postgres database
 
@@ -67,19 +123,19 @@ ENCODING = 'UTF8' CONNECTION LIMIT = -1;
 ```
 * You can use PGadmin to create the database and for an intuitive user interface `https://www.pgadmin.org/download/pgadmin-4-apt/`
 * Once setup its time to run the migrations
-* go to `cd /opt/edugem/apps/mirror-ui/src/apps/main`
+* go to `cd /opt/edugem/apps/your project name/src/apps/main`
 * run `alembic upgrade head`
 
 
 ### For running asynchronous task
 * Install redis `https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04`. Do not keep any password as of now. SKIP step 4 of the tutorial.
-* go to `/etc/edugem/apps/mirror/src/`
+* go to `/etc/edugem/apps/your project name/src/`
 * run `rq worker`
 
 ### Config.yml
-* run `cp /opt/edugem/apps/mirror/src/config/config.sample.yml /opt/edugem/apps/mirror/src/config/config.yml`
+* run `cp /opt/edugem/apps/your project name/src/config/config.sample.yml /opt/edugem/apps/your project name/src/config/config.yml`
 * Now update the newly created `config.yml` file.
 
 ### Run Project
-* go to `/opt/edugem/apps/mirror-ui/src`
+* go to `/opt/edugem/apps/your project name/src`
 * run `python manage.py runserver`
