@@ -1,10 +1,10 @@
 ## Project Setup Instructions
 The Project uses
-1. Django 
-2. Alembic (for managing migrations)
-3. SQLAlchemy (for ORM)
-4. jinja2 (template rendering)
-5. RQ Worker (for async tasking)
+- Django 
+- Alembic (for managing migrations)
+- SQLAlchemy (for ORM)
+- jinja2 (template rendering)
+- RQ Worker (for async tasking)
 
 ## Technical Details
 
@@ -70,14 +70,14 @@ The Project uses
 	* save_file - to save any uploaded file
 	* InputValidation - Class to validate input fields
 	* QueueStatus - Class to manage Queue
-* Middleware
+* ### Middleware
   * admin auth middleware - general purpose middleware
   * disable csrf middleware - for disabling csrf on specific paths
-* migrations
+* ### migrations
   * env.py - update this file to generate migrations using alembic
-* models
+* ### models
    * demo_user_model.py - delete this model, this is just for refence to help you create your first model
-* static/main 
+* ### static/main 
   * css - already has bootstrap.min.css, keep updating it's content to update bootstrap version
   * main.css - for custom css
   * js/app.js - included in all pages
@@ -85,12 +85,12 @@ The Project uses
   *  js/custom-validation.js - custom input validation works with parsley.js
   *  js/jquery.min.js - update the content of this file to update jquery version
   *  js/parsley.js - input validation js
-* tasks
+* ### tasks
   * send_email.py - to send emails, should be scheduled using rq worker
-* templates
+* ### templates
   * layouts/base.html - this is the base html containg all the js and css, this must be extended
   * pages/index.html - this is a demo page for you to get started
-* views
+* ### views
   * demo_user_view.py - this is a demo view for you to get started, delete this when working
 * custom_jinja_filter.py - contains all the custom jinja filters
 * jinja2.py - register all the custom filters 
