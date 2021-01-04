@@ -133,7 +133,7 @@ ENCODING = 'UTF8' CONNECTION LIMIT = -1;
 
 
 ### For running asynchronous task
-* Install redis `https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04`. Do not keep any password as of now. SKIP step 4 of the tutorial.
+* Install redis `https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04`. Do not keep any password as of now. Don't go over step one and if you have then make changes in base_view.py while instantiating Redis.
 * go to `/etc/edugem/apps/your project name/src/`
 * run `rq worker`
 
