@@ -7,22 +7,23 @@
         {% block title %}{% endblock %}| Project Name
     </title>
     <meta content="{{ csrf_token }}" name="csrf-token"/>
-    <script src="{{ static('main/css/bootstrap.min.js') }}" type="text/javascript"></script>
-    <script src="{{ static('main/css/main.js') }}" type="text/javascript"></script>
+    <link href="{{ static('main/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ static('main/css/main.css') }}" rel="stylesheet">
     <script>
-    function APP() {}
+        function APP() {
+        }
     </script>
     <script src="{{ static('main/js/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ static('main/js/app.js') }}" type="text/javascript"></script>
     {% block load_header_scripts %} {% endblock %}
 </head>
 <body class="">
-    <div class="msg-text" id="msg-text">
-        {% include 'layouts/messages.html' %}
-    </div>
-    {% block content %}
-    If you are seeing this then the site has some problem, contact support.
-    {% endblock %}
+<div class="msg-text" id="msg-text">
+    {% include 'layouts/messages.html' %}
+</div>
+{% block content %}
+If you are seeing this then the site has some problem, contact support.
+{% endblock %}
 
 <script>let base_url = "{{ base_url }}";</script>
 <script src="{{ static('main/js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
