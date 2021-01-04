@@ -127,9 +127,10 @@ sudo apt-get -y install postgresql
 ```ALTER USER postgres WITH PASSWORD 'postgres';```
 keep in mind, here we are setting the password as postgres, you can change this.
 
+* Change the database name in below command
 ```
-# Create a database named mirror 
-CREATE DATABASE mirror WITH OWNER = postgres ENCODING = 'UTF8' CONNECTION LIMIT = -1;
+# Create a database 
+CREATE DATABASE database_name WITH OWNER = postgres ENCODING = 'UTF8' CONNECTION LIMIT = -1;
 
 # Press \q to exit the postgres session
 \q
