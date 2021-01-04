@@ -114,15 +114,23 @@ The Project uses
 ### Create Database
 * The project uses postgres database
 
+* Install Postgres
+```
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get -y install postgresql
+```
+* Login to postgres session
+```sudo -u postgres psql```
+* Change password for default user if this is your first installation
+```ALTER USER postgres WITH PASSWORD 'postgres';```
+keep in mind, here we are setting the password as postgres, you can change this.
 
 ```
-# Login to postgres session
-sudo -u postgres psql
-
 # Create a database named mirror 
-CREATE DATABASE mirror
-WITH OWNER = postgres
-ENCODING = 'UTF8' CONNECTION LIMIT = -1;
+CREATE DATABASE mirror WITH OWNER = postgres ENCODING = 'UTF8' CONNECTION LIMIT = -1;
+
 # Press \q to exit the postgres session
 \q
 ```
