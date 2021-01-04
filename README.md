@@ -1,5 +1,7 @@
 ## Project Setup Instructions
+
 The Project uses
+
 - Django 
 - Alembic (for managing migrations)
 - SQLAlchemy (for ORM)
