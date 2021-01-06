@@ -153,3 +153,22 @@ CREATE DATABASE database_name WITH OWNER = postgres ENCODING = 'UTF8' CONNECTION
 ### Run Project
 * go to `/opt/edugem/apps/your project name/src`
 * run `python manage.py runserver`
+
+### Alembic - Generating Migrations
+
+- Once models are changed for any component, run following commands to create its migrations file & reflect it into the database
+- Update /src/apps/main/migrations/env.py file if you add new model. Otherwise alembic migration won't reflect your changes
+```
+cd src/apps/main
+
+alembic revision --autogenerate -m "Write description of migration here"
+```
+<!--alembic revision --autogenerate -m "Write description of migration here"-->
+
+- Rename file generated inside `main/migrations/versions/` with the following naming convention: `revisionID_description`
+    - ex: `0005_add_contact_number_in_org_table.py`
+    - Also update the Revision ID `revision` & `down_revision` in the generated file to match the version number 
+
+- Run `alembic upgrade head` to have this new migration reflected in the database.
+
+- Note: Once you delete all the tables (i.e, when freshly migrating to DB), run `alembic upgrade head` to have all the changes reflected in the database.
