@@ -5,9 +5,84 @@ Index
 {% block load_header_scripts %}
 {% endblock %}
 {% block content %}
-<div class="container-fluid p-0">
-    Hello
+
+<div class="container mt-3">
+
+    <h5>Input</h5>
+    <div class="row">
+        <div class="col-md-8 order-md-1">
+            <form class="needs-validation" action="/upload" method="POST">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-outline-primary " value="Upload">
+                    </div>
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    <h5>Search</h5>
+    <div class="row">
+        <div class="col-md-8 order-md-1">
+            <form class="needs-validation" action="/search" method="get">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="query" value="{{ query or '' }}"
+                                   id="askSomethingInput"
+                                   placeholder="Ask something">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-outline-primary" value="Submit">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h5>Output</h5>
+    <div class="h6">Total - {{ total }}</div>
+    <div class="table-responsive">
+        <table class="table table table-bordered">
+            <thead class="thead-light">
+            <tr>
+                <th>SKU</th>
+                <th>Description</th>
+                <th>Asin No</th>
+                <th>Misc</th>
+                <th>Warehouse B</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for output_item in output_list %}
+            <tr>
+                <td>{{output_item['sku']}}</td>
+                <td>{{output_item['description']}}</td>
+                <td>{{output_item['asin_no']}}</td>
+                <td>{{output_item['misc']}}</td>
+                <td>{{output_item['warehouse_b']}}</td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
 </div>
+
 {% endblock %}
 {% block scripts %}
 {% endblock %}

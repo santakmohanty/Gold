@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 
 from django.template.defaultfilters import slugify
 
-from project.settings import BASE_DIR
+from gold.settings import BASE_DIR
 
 
 class MLStripper(HTMLParser):

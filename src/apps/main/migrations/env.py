@@ -19,9 +19,9 @@ sys.path.append(APPS_PATH)
 
 # Important
 # Update the below line and import the model by name
-from apps.main.models import demo_user_model 
+from apps.main.models import demo_user_model
 
-from project import settings
+from gold import settings
 
 config = context.config
 

@@ -3,7 +3,7 @@ import math
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import reverse
 
-from project.settings import BASE_URL
+from gold.settings import BASE_URL
 from jinja2 import Environment
 
 from apps.main.custom_jinja_filters import timestamp_to_date, length, string, hashid_encode,hashid_decode

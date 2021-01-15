@@ -2,7 +2,7 @@ from datetime import datetime
 
 from hashids import Hashids
 
-from project.settings import HASHIDS_SALT
+from gold.settings import HASHIDS_SALT
 
 
 def timestamp_to_date(timestamp):
