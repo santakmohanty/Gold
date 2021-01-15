@@ -1,4 +1,5 @@
 import os
+
 # YAML configurations
 import yaml
 
@@ -8,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 'src' is BASE_DIR
 
 # 'src/config/config.yml'
-CONFIG_FILE = os.path.join(BASE_DIR, 'config', 'config.yml')
+CONFIG_FILE = os.path.join(BASE_DIR, '../', 'config', 'config.yml')
 
 # config_data will contain configuration details like credentials, API Keys, Secret Keys
 with open(CONFIG_FILE) as f:
