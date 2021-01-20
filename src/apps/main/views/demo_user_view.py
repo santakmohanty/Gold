@@ -2,7 +2,7 @@ from django.http import HttpRequest
 from django.shortcuts import render
 
 from apps.main.views.base_view import BaseView
-
+import pandas as pd
 output_list = [
     {
         "sku": "Lorem",
@@ -107,5 +107,11 @@ class DemoUserView(BaseView):
 
     @staticmethod
     def upload(request: HttpRequest):
+        if request.FILES['excel_file_upload']:
+            excel_file = request.FILES['excel_file_upload']
+            df = pd.read_excel(excel_file)
+            print("*"*99)
+            print(df)
+            print("*" * 99)
         return render(request, 'pages/index.html',
                       {"output_list": output_list, "total": 100, "query": request.GET.get('query', "")})

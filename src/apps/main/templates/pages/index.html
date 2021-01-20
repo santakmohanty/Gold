@@ -11,24 +11,27 @@ Index
     <h5>Input</h5>
     <div class="row">
         <div class="col-md-8 order-md-1">
-            <form class="needs-validation" action="/upload" method="POST">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile02">
-                                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                            </div>
+
+            <form enctype="multipart/form-data" class="needs-validation" action="/upload" method="POST">
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                          <div class="input-group mb-3">
+                        <div class="custom-file">
+                         <input type="file"
+                                   title="Upload excel file"
+                                    class="custom-file-input"
+                                   name="excel_file_upload"
+                                   required="required" id="file_upload">
+                         <label class="custom-file-label" for="file_upload">Choose file</label>
 
                         </div>
+                    </div>
                     </div>
                     <div class="col-md-2">
                         <input type="submit" class="btn btn-outline-primary " value="Upload">
                     </div>
-
                 </div>
-
-
             </form>
         </div>
     </div>
